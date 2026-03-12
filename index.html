@@ -23,7 +23,7 @@
             --accent-yellow: #ffcc00;
             --light-bg: #f4f7fb;
             --text-dark: #333333;
-            --text-blue-grey: #4a6572; /* Added for the specific tag text color */
+            --text-blue-grey: #4a6572;
         }
 
         .bg-primary-teal { background-color: var(--primary-teal); }
@@ -236,15 +236,6 @@
             transform: scale(1.5);
         }
 
-        /* Continuous Slow Pan (Ken Burns) for Hero */
-        @keyframes kenBurns {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-        .hero-img-animate {
-            animation: kenBurns 25s ease-in-out infinite alternate;
-        }
-
         /* Premium Scroll Animation */
         .reveal {
             opacity: 0;
@@ -259,18 +250,31 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Fixed bottom bar spacing to prevent content overlap */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* Make space for the bottom fixed bar */
+            }
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased relative">
 
-    <header class="bg-white py-4 shadow-sm sticky top-0 z-50 transition-all duration-300" id="main-header">
+    <header class="bg-white py-4 shadow-sm sticky top-0 z-40 transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <div class="flex items-center cursor-pointer hover:scale-105 transition-transform duration-500">
-               <div class="bg-accent-yellow p-2 rounded flex flex-col items-center justify-center font-bold text-red-600 leading-tight shadow-sm">
-                    <span class="text-xs text-black">THE</span>
-                    <span class="text-xl">INDIAN</span>
-                    <span class="text-sm text-black">PROPERTY SHOW</span>
-               </div>
+            
+            <div class="flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
+                <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773332835/logo_gn4fpk.png" alt="The Indian Property Show Logo" class="h-16 w-auto object-contain">
             </div>
             
             <nav class="hidden md:flex items-center space-x-8">
@@ -278,13 +282,36 @@
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="register.html" class="bg-primary-teal text-white px-7 py-2.5 rounded-md font-semibold btn-shine block">Register Now</a>
             </nav>
+
+            <button id="menu-btn" class="md:hidden flex flex-col items-center justify-center space-y-1.5 p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary-teal">
+                <span class="block w-6 h-0.5 bg-gray-800 rounded"></span>
+                <span class="block w-6 h-0.5 bg-gray-800 rounded"></span>
+                <span class="block w-6 h-0.5 bg-gray-800 rounded"></span>
+            </button>
         </div>
     </header>
 
-    <section class="w-full bg-[#004236] relative overflow-hidden h-[500px] md:h-[600px]">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1920&auto=format&fit=crop" 
-             alt="Indian Property Show Banner" 
-             class="absolute inset-0 w-full h-full object-cover opacity-80 hero-img-animate transform-origin-center">
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 flex flex-col pt-6 px-6 md:hidden">
+        <div class="flex justify-end mb-8">
+            <button id="close-menu-btn" class="p-2 border border-gray-200 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-50 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col space-y-6 text-lg font-medium text-gray-800">
+            <a href="#" class="hover:text-primary-teal pb-4 border-b border-gray-100 close-menu-link">Home</a>
+            <a href="#about" class="hover:text-primary-teal pb-4 border-b border-gray-100 close-menu-link">About Us</a>
+            <a href="register.html" class="bg-primary-teal text-white text-center py-3 rounded-md font-semibold mt-4">Register Now</a>
+        </nav>
+    </div>
+
+    <section class="w-full bg-[#004236] relative flex">
+        <picture class="w-full h-auto">
+            <source media="(max-width: 767px)" srcset="https://res.cloudinary.com/dozcviag7/image/upload/v1773334219/banner2.jpg_cvzo0o.jpg">
+            <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773332835/banner1_x8zico.jpg" alt="Indian Property Show Banner" class="w-full h-auto object-contain md:object-cover">
+        </picture>
     </section>
 
     <section class="py-16 bg-white text-center px-4 relative">
@@ -310,14 +337,14 @@
 
             <div class="mt-12 reveal reveal-delay-3 border-y border-gray-100 py-4 max-w-5xl mx-auto flex justify-center">
                 <div class="flex flex-wrap justify-center items-center text-[15px] font-medium text-[#4a6572] w-full">
-                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Luxury Homes</span> 
-                    <span class="text-gray-200">|</span>
-                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Investment Properties</span> 
-                    <span class="text-gray-200">|</span>
-                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Pre-Launch Offers</span> 
-                    <span class="text-gray-200">|</span>
-                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Assured Rental Projects</span> 
-                    <span class="text-gray-200">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Luxury Homes</span> 
+                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Investment Properties</span> 
+                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Pre-Launch Offers</span> 
+                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Assured Rental Projects</span> 
+                    <span class="text-gray-200 hidden sm:inline">|</span>
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">High ROI Opportunities</span>
                 </div>
             </div>
@@ -580,32 +607,39 @@
             <a href="register.html" class="inline-block mt-6 bg-accent-yellow text-dark-teal font-bold py-4 px-10 rounded-lg shadow-lg btn-shine hover:shadow-xl reveal reveal-delay-2">
                 Request Your Invite
             </a>
-            <p class="text-sm text-gray-500 mt-4 reveal reveal-delay-2">Limited seats in Frankfurt & Munich.</p>
+            <p class="text-sm text-gray-500 mt-4 reveal reveal-delay-2 mb-16 md:mb-0">Limited seats in Frankfurt & Munich.</p>
         </div>
     </section>
 
-    <footer class="bg-[#111827] py-8 text-center text-sm text-gray-400 border-t-4 border-primary-teal">
+    <footer class="bg-[#111827] py-8 text-center text-sm text-gray-400 border-t-4 border-primary-teal md:pb-8 pb-24">
         <p>Copyright © 2026 Indian Property Exhibition Germany. All Rights Reserved.</p>
         <p class="mt-2 text-xs">Designed By <a href="#" class="text-teal-500 hover:text-white transition-colors underline decoration-teal-500/30">Azhari Infotech</a></p>
     </footer>
 
-    <a href="whatsapp://send?phone=+919152565195" target="_blank" class="fixed bottom-6 left-6 bg-[#000033] text-white w-14 h-14 rounded-full shadow-2xl hover:bg-[#002244] hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center border-2 border-white/20">
+    <a href="whatsapp://send?phone=+919152565195" target="_blank" class="hidden md:flex fixed bottom-6 left-6 bg-[#000033] text-white w-14 h-14 rounded-full shadow-2xl hover:bg-[#002244] hover:scale-110 transition-all duration-300 z-50 items-center justify-center border-2 border-white/20">
         <i class="fa-brands fa-whatsapp text-3xl drop-shadow-md"></i>
     </a>
     
-    <a href="#" class="fixed bottom-6 right-6 bg-white text-primary-teal border border-gray-200 w-12 h-12 rounded-full shadow-lg hover:border-primary-teal hover:bg-primary-teal hover:text-white transition-all duration-300 z-50 flex items-center justify-center group">
+    <a href="#" class="hidden md:flex fixed bottom-6 right-6 bg-white text-primary-teal border border-gray-200 w-12 h-12 rounded-full shadow-lg hover:border-primary-teal hover:bg-primary-teal hover:text-white transition-all duration-300 z-50 items-center justify-center group">
         <i class="fa-solid fa-arrow-up text-sm transform group-hover:-translate-y-1 transition-transform"></i>
     </a>
+
+    <div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <a href="register.html" class="flex-1 bg-primary-teal text-white py-4 font-semibold text-center flex items-center justify-center border-r border-teal-700">
+            <i class="fa-solid fa-user mr-2"></i> Register Now
+        </a>
+        <a href="whatsapp://send?phone=+919152565195" target="_blank" class="flex-1 bg-[#002244] text-white py-4 font-semibold text-center flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Whatsapp
+        </a>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const revealElements = document.querySelectorAll('.reveal');
-            
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Unobserve to run animation only once per load
                         observer.unobserve(entry.target); 
                     }
                 });
@@ -614,10 +648,8 @@
                 threshold: 0.1, 
                 rootMargin: "0px 0px -50px 0px"
             });
-
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // Dynamic header shadow
             const header = document.getElementById('main-header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
@@ -627,6 +659,28 @@
                     header.classList.remove('shadow-md', 'py-3');
                     header.classList.add('shadow-sm', 'py-4');
                 }
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('.close-menu-link');
+
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                document.body.style.overflow = 'hidden'; 
+            }
+
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = ''; 
+            }
+
+            menuBtn.addEventListener('click', openMenu);
+            closeMenuBtn.addEventListener('click', closeMenu);
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
         });
     </script>
