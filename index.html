@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Indian Property Show Germany 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            background-color: #fcfcfc;
+        }
+
+        /* Custom Colors */
+        :root {
+            --primary-teal: #006666;
+            --dark-teal: #004d4d;
+            --accent-yellow: #ffcc00;
+            --light-bg: #f4f7fb;
+            --text-dark: #333333;
+            --text-blue-grey: #4a6572; /* Added for the specific tag text color */
+        }
+
+        .bg-primary-teal { background-color: var(--primary-teal); }
+        .text-primary-teal { color: var(--primary-teal); }
+        .border-primary-teal { border-color: var(--primary-teal); }
+        .bg-dark-teal { background-color: var(--dark-teal); }
+        .bg-accent-yellow { background-color: var(--accent-yellow); }
+        .bg-light-bg { background-color: var(--light-bg); }
+
+        /* Premium Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+        }
+        .btn-shine:hover::after {
+            left: 150%;
+        }
+        .btn-shine:hover {
+            box-shadow: 0 8px 20px rgba(0, 77, 77, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Section Headings */
+        .section-heading-pill {
+            background-color: var(--primary-teal);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 102, 102, 0.15);
+        }
+
+        /* Luxury Cards - Dynamic Bottom Border & Smooth Lift */
+        .luxury-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+        }
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 4px;
+            background: var(--primary-teal);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .luxury-card:hover {
+            box-shadow: 0 15px 30px -5px rgba(0, 102, 102, 0.12);
+            transform: translateY(-6px);
+            border-color: transparent;
+        }
+        .luxury-card:hover::before {
+            transform: scaleX(1);
+        }
+        .luxury-icon {
+            color: var(--primary-teal);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+        .luxury-card:hover .luxury-icon {
+            transform: scale(1.1) translateY(-4px);
+        }
+
+        /* City Cards - Deep Depth Effect */
+        .city-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            background: white;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .city-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+        }
+        .city-card-img-container {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        .city-card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .city-card:hover .city-card-img-container img {
+            transform: scale(1.08);
+        }
+        .city-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+            transition: opacity 0.4s ease;
+            opacity: 0.8;
+        }
+        .city-card:hover .city-overlay-gradient {
+            opacity: 1;
+        }
+        .city-card-title-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            width: 100%;
+            text-shadow: 0px 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+        .city-card:hover .city-card-title-overlay {
+            transform: translate(-50%, -55%);
+        }
+        
+        /* Interactive Nav Links */
+        .nav-link {
+            position: relative;
+            color: #374151;
+            font-weight: 500;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-teal);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-teal);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* General layout helpers */
+        .divider-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--primary-teal);
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .divider-line::before, .divider-line::after {
+            content: "";
+            height: 1px;
+            background-color: #d1d5db;
+            flex-grow: 1;
+            max-width: 120px;
+        }
+
+        /* Lists - Smooth Slide */
+        .teal-bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .teal-bullet-list li:hover {
+            color: var(--dark-teal);
+            transform: translateX(6px);
+            font-weight: 500;
+        }
+        .teal-bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-teal);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: -2px;
+            transition: transform 0.3s ease;
+        }
+        .teal-bullet-list li:hover::before {
+            transform: scale(1.5);
+        }
+
+        /* Continuous Slow Pan (Ken Burns) for Hero */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .hero-img-animate {
+            animation: kenBurns 25s ease-in-out infinite alternate;
+        }
+
+        /* Premium Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white py-4 shadow-sm sticky top-0 z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center cursor-pointer hover:scale-105 transition-transform duration-500">
+               <div class="bg-accent-yellow p-2 rounded flex flex-col items-center justify-center font-bold text-red-600 leading-tight shadow-sm">
+                    <span class="text-xs text-black">THE</span>
+                    <span class="text-xl">INDIAN</span>
+                    <span class="text-sm text-black">PROPERTY SHOW</span>
+               </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="register.html" class="bg-primary-teal text-white px-7 py-2.5 rounded-md font-semibold btn-shine block">Register Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="w-full bg-[#004236] relative overflow-hidden h-[500px] md:h-[600px]">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1920&auto=format&fit=crop" 
+             alt="Indian Property Show Banner" 
+             class="absolute inset-0 w-full h-full object-cover opacity-80 hero-img-animate transform-origin-center">
+    </section>
+
+    <section class="py-16 bg-white text-center px-4 relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto reveal relative z-10">
+            <h2 class="section-heading-pill hover:scale-105 transition-transform duration-300">Indian Property Exhibition 2026 – Frankfurt & Munich</h2>
+            
+            <div class="divider-line reveal reveal-delay-1">
+                <span class="text-primary-teal font-semibold tracking-wide">Exclusive Invite-Only Real Estate Event for NRIs in Germany</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-4 reveal reveal-delay-1">Buy Property in India – Meet Top Developers in Germany</h3>
+            
+            <p class="text-gray-600 mb-4 max-w-2xl mx-auto text-sm reveal reveal-delay-2 leading-relaxed">
+                If you are an Indian living in Germany and planning to buy property in<br>
+                Mumbai, Pune, Delhi NCR, Hyderabad, Bangalore or Chennai — this event is for you.
+            </p>
+            <p class="text-gray-800 font-medium max-w-2xl mx-auto text-sm reveal reveal-delay-2 leading-relaxed">
+                The <strong class="text-primary-teal">Indian Property Exhibition in Frankfurt & Munich</strong> brings<br>
+                India's leading real estate developers directly to NRIs in Germany.
+            </p>
+
+            <div class="mt-12 reveal reveal-delay-3 border-y border-gray-100 py-4 max-w-5xl mx-auto flex justify-center">
+                <div class="flex flex-wrap justify-center items-center text-[15px] font-medium text-[#4a6572] w-full">
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Luxury Homes</span> 
+                    <span class="text-gray-200">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Investment Properties</span> 
+                    <span class="text-gray-200">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Pre-Launch Offers</span> 
+                    <span class="text-gray-200">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">Assured Rental Projects</span> 
+                    <span class="text-gray-200">|</span>
+                    <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">High ROI Opportunities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-light-bg overflow-hidden border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                
+                <div class="reveal">
+                    <div class="section-heading-pill">About The Event</div>
+                    <h3 class="text-xl font-bold text-primary-teal mb-6">An exclusive Indian Real Estate Expo in Germany designed for:</h3>
+                    
+                    <ul class="teal-bullet-list text-gray-700 space-y-3 mb-8">
+                        <li>NRIs & Indian expats</li>
+                        <li>IT professionals & business owners</li>
+                        <li>Families planning to return to India</li>
+                        <li>Investors seeking strong rental yield</li>
+                    </ul>
+                    
+                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-primary-teal transform transition-transform duration-300 hover:translate-x-2">
+                        <p class="font-bold text-gray-800 leading-relaxed">
+                            Meet top Indian developers, explore verified projects, and get one-on-one consultation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-1">Locations: Frankfurt & Munich</h3>
+                    <p class="text-sm text-gray-500 mb-6">(Venue shared after registration confirmation)</p>
+                    
+                    <div class="w-full h-[320px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative group cursor-pointer border border-white">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" alt="Map" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-primary-teal/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl text-primary-teal font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                <i class="fa-solid fa-map-location-dot mr-2 text-lg"></i>Interactive Map
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="section-heading-pill">Luxury Segment – Premium & Branded Residences</div>
+                <div class="divider-line">
+                    <span class="text-primary-teal font-semibold tracking-wide">Explore</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="luxury-card reveal">
+                    <i class="fa-regular fa-building luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">Luxury Apartments in<br>Mumbai</h4>
+                </div>
+                <div class="luxury-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-golf-ball-tee luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">Golf & branded residences in<br>Delhi NCR</h4>
+                </div>
+                <div class="luxury-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-house-signal luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">Smart homes in Bangalore</h4>
+                </div>
+                <div class="luxury-card reveal">
+                    <i class="fa-solid fa-house-chimney luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">Premium villas in Hyderabad</h4>
+                </div>
+                <div class="luxury-card reveal reveal-delay-1">
+                    <i class="fa-regular fa-city luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">High-end townships in Pune</h4>
+                </div>
+                <div class="luxury-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-water luxury-icon"></i>
+                    <h4 class="font-bold text-gray-800 mt-2">Waterfront & gated<br>communities in Chennai</h4>
+                </div>
+            </div>
+            
+            <p class="text-center mt-12 font-bold text-gray-800 reveal bg-gray-50 py-3 rounded-lg max-w-xl mx-auto">Perfect for lifestyle buyers and HNI investors.</p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light-bg border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <div class="section-heading-pill">Investment Opportunities – High ROI for NRIs</div>
+                <div class="divider-line">
+                    <span class="text-primary-teal font-semibold tracking-wide">Looking for the best investment property in India?</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-10 relative mt-12 shadow-lg reveal reveal-delay-1 transition-transform hover:-translate-y-1 duration-500">
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary-teal text-white px-8 py-2 rounded-lg font-semibold text-sm shadow-md">
+                    Our experts will guide you based on:
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                    <ul class="teal-bullet-list text-gray-700 text-sm space-y-4">
+                        <li>Budget Parameters</li>
+                        <li>Rental income goals</li>
+                        <li>Long-term appreciation</li>
+                        <li>Exit strategy planning</li>
+                    </ul>
+                    <ul class="teal-bullet-list text-gray-700 text-sm space-y-4">
+                        <li>Assured Rental Return Projects</li>
+                        <li>Pre-Launch & Early-Bird Pricing</li>
+                        <li>High Appreciation Corridors</li>
+                        <li>Flexible NRI Payment Plans</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <div class="section-heading-pill">Top Cities to Invest in India</div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="city-card reveal cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&auto=format&fit=crop" alt="Mumbai">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">MUMBAI</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Mumbai</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">India's financial capital – strong rental demand & luxury growth.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal reveal-delay-1 cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?w=600&auto=format&fit=crop" alt="Pune">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">PUNE</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Pune</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">Fast-growing IT hub<br>with excellent ROI potential.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal reveal-delay-2 cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1587474260580-58955f9e3195?w=600&auto=format&fit=crop" alt="Delhi NCR">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">DELHI NCR</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Delhi NCR</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">Premium projects in Gurgaon & Noida with global infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&auto=format&fit=crop" alt="Bangalore">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">BANGALORE</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Bangalore</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">High rental yield driven by<br>tech sector demand.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal reveal-delay-1 cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1590483863868-98e3575da5de?w=600&auto=format&fit=crop" alt="Hyderabad">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">HYDERABAD</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Hyderabad</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">Rapid appreciation<br>& strong end-user market.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal reveal-delay-2 cursor-pointer group">
+                    <div class="city-card-img-container">
+                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&auto=format&fit=crop" alt="Chennai">
+                        <div class="city-overlay-gradient"></div>
+                        <div class="city-card-title-overlay">CHENNAI</div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Chennai</h4>
+                        <p class="text-primary-teal text-sm leading-relaxed">Stable market with long-term<br>investment security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-light-bg border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <div class="section-heading-pill">Special Speaker Session</div>
+                <div class="divider-line">
+                    <span class="text-primary-teal font-semibold tracking-wide">Why NRIs Should Invest in Indian Real Estate in 2026</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
+                    <div class="bg-dark-teal text-white px-5 py-2 rounded-lg text-sm inline-block font-semibold mb-5 shadow-sm">Topics include:</div>
+                    <ul class="teal-bullet-list text-gray-700 text-sm space-y-3 pt-2">
+                        <li>Best locations to invest right now in India</li>
+                        <li>Luxury vs investment analysis</li>
+                        <li>Rental yield insights</li>
+                        <li>Infrastructure impact on property prices</li>
+                        <li>NRI legal & taxation guidance</li>
+                    </ul>
+                    <p class="font-bold text-gray-800 mt-6 text-sm flex items-center"><i class="fa-solid fa-microphone-lines text-primary-teal mr-2"></i> Speaker announcement coming soon</p>
+                    <div class="inline-block border-2 border-red-200 text-red-600 rounded px-5 py-2.5 mt-5 text-xs font-extrabold uppercase tracking-widest bg-red-50 shadow-sm animate-pulse">Limited seating available</div>
+                </div>
+
+                <div class="reveal reveal-delay-1 bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
+                    <div class="bg-dark-teal text-white px-5 py-2 rounded-lg text-sm inline-block font-semibold mb-5 shadow-sm">Who Should Attend?</div>
+                    <ul class="teal-bullet-list text-gray-700 text-sm space-y-3 pt-2">
+                        <li>Indian professionals in Germany</li>
+                        <li>Families relocating back to India</li>
+                        <li>First-time NRI buyers</li>
+                        <li>Investors seeking rental income</li>
+                        <li>Luxury property buyers</li>
+                    </ul>
+                    <p class="font-bold text-gray-800 mt-6 text-sm">If you live in Frankfurt, Munich or nearby cities —</p>
+                    <div class="inline-block border-2 border-primary-teal text-primary-teal rounded px-5 py-2.5 mt-5 text-xs font-extrabold uppercase tracking-widest bg-teal-50 shadow-sm transition-transform hover:-translate-y-1">Don't miss this opportunity</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-20 bg-white overflow-hidden relative">
+        <div class="max-w-3xl mx-auto px-4 text-center reveal relative z-10">
+            <a href="register.html" class="section-heading-pill !bg-dark-teal !text-white text-xl !py-4 !px-10 rounded-xl mb-10 shadow-lg btn-shine cursor-pointer inline-block">
+                Register Now – By Invitation Only
+            </a>
+
+            <div class="border border-gray-200 rounded-2xl p-10 relative max-w-lg mx-auto mt-6 bg-white shadow-xl transition-transform duration-500 hover:-translate-y-2">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-teal text-white px-6 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">
+                    Event Highlights
+                </div>
+                
+                <div class="flex flex-col space-y-5 font-bold text-gray-800 text-sm mt-4">
+                    <div class="border-b border-gray-100 pb-4 flex items-center justify-center group"><i class="fa-solid fa-circle-check text-green-500 mr-3 transform group-hover:scale-125 transition-transform"></i>Top Real Estate Developers participation</div>
+                    <div class="border-b border-gray-100 pb-4 flex items-center justify-center group"><i class="fa-solid fa-circle-check text-green-500 mr-3 transform group-hover:scale-125 transition-transform"></i>Private consultation slots</div>
+                    <div class="flex items-center justify-center group"><i class="fa-solid fa-circle-check text-green-500 mr-3 transform group-hover:scale-125 transition-transform"></i>Exclusive NRI offers</div>
+                </div>
+            </div>
+
+            <p class="font-bold text-gray-800 mt-10 text-lg reveal reveal-delay-1">Submit your registration to receive your official invite.</p>
+            
+            <a href="register.html" class="inline-block mt-6 bg-accent-yellow text-dark-teal font-bold py-4 px-10 rounded-lg shadow-lg btn-shine hover:shadow-xl reveal reveal-delay-2">
+                Request Your Invite
+            </a>
+            <p class="text-sm text-gray-500 mt-4 reveal reveal-delay-2">Limited seats in Frankfurt & Munich.</p>
+        </div>
+    </section>
+
+    <footer class="bg-[#111827] py-8 text-center text-sm text-gray-400 border-t-4 border-primary-teal">
+        <p>Copyright © 2026 Indian Property Exhibition Germany. All Rights Reserved.</p>
+        <p class="mt-2 text-xs">Designed By <a href="#" class="text-teal-500 hover:text-white transition-colors underline decoration-teal-500/30">Azhari Infotech</a></p>
+    </footer>
+
+    <a href="whatsapp://send?phone=+919152565195" target="_blank" class="fixed bottom-6 left-6 bg-[#000033] text-white w-14 h-14 rounded-full shadow-2xl hover:bg-[#002244] hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center border-2 border-white/20">
+        <i class="fa-brands fa-whatsapp text-3xl drop-shadow-md"></i>
+    </a>
+    
+    <a href="#" class="fixed bottom-6 right-6 bg-white text-primary-teal border border-gray-200 w-12 h-12 rounded-full shadow-lg hover:border-primary-teal hover:bg-primary-teal hover:text-white transition-all duration-300 z-50 flex items-center justify-center group">
+        <i class="fa-solid fa-arrow-up text-sm transform group-hover:-translate-y-1 transition-transform"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Unobserve to run animation only once per load
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Dynamic header shadow
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-md', 'py-3');
+                    header.classList.remove('shadow-sm', 'py-4');
+                } else {
+                    header.classList.remove('shadow-md', 'py-3');
+                    header.classList.add('shadow-sm', 'py-4');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

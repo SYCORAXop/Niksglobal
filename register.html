@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | The Indian Property Show Germany</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a4a4a;
+            background-color: #f4f7fb;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        :root {
+            --primary-teal: #006666;
+            --dark-teal: #004d4d;
+            --accent-yellow: #ffcc00;
+        }
+
+        .text-primary-teal { color: var(--primary-teal); }
+        .bg-primary-teal { background-color: var(--primary-teal); }
+        .bg-dark-teal { background-color: var(--dark-teal); }
+        .bg-accent-yellow { background-color: var(--accent-yellow); }
+
+        /* Form Input Styling */
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1.25rem 0.875rem 2.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            background-color: #f9fafb;
+            color: #374151;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(0, 102, 102, 0.1);
+            background-color: #ffffff;
+        }
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Button Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            transition: left 0.7s ease;
+        }
+        .btn-shine:hover::after {
+            left: 150%;
+        }
+        .btn-shine:hover {
+            box-shadow: 0 8px 20px rgba(0, 77, 77, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white py-4 shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center hover:scale-105 transition-transform duration-300">
+               <div class="bg-accent-yellow p-2 rounded flex flex-col items-center justify-center font-bold text-red-600 leading-tight shadow-sm">
+                    <span class="text-xs text-black">THE</span>
+                    <span class="text-xl">INDIAN</span>
+                    <span class="text-sm text-black">PROPERTY SHOW</span>
+               </div>
+            </a>
+            <a href="index.html" class="text-gray-500 hover:text-primary-teal font-medium text-sm transition-colors flex items-center">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
+            
+            <div class="md:w-5/12 bg-dark-teal text-white p-10 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary-teal rounded-full blur-3xl opacity-50"></div>
+
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-extrabold mb-2 text-accent-yellow">Secure Your Invite</h2>
+                    <p class="text-gray-200 text-sm mb-8 leading-relaxed">Join the most exclusive Indian real estate event for NRIs in Germany.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary-teal p-2 rounded shrink-0 mt-1">
+                                <i class="fa-solid fa-calendar-days text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-sm">Munich & Frankfurt</h4>
+                                <p class="text-xs text-gray-300">25th & 26th April 2026</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary-teal p-2 rounded shrink-0 mt-1">
+                                <i class="fa-solid fa-building-user text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-sm">Top Developers</h4>
+                                <p class="text-xs text-gray-300">Meet India's premium real estate builders directly.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-primary-teal p-2 rounded shrink-0 mt-1">
+                                <i class="fa-solid fa-handshake-angle text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-sm">1-on-1 Consultation</h4>
+                                <p class="text-xs text-gray-300">Get private investment and legal guidance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative z-10 mt-12 pt-6 border-t border-white/20 text-xs text-gray-300">
+                    <i class="fa-solid fa-circle-info text-accent-yellow mr-2"></i>
+                    Registration is mandatory. Venues will be shared exclusively with confirmed guests.
+                </div>
+            </div>
+
+            <div class="md:w-7/12 p-10 lg:p-14 relative bg-white">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Guest Registration</h3>
+                
+                <form id="inviteForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+                    
+                    <input type="hidden" name="access_key" value="c17bcb1c-b5aa-4c50-837e-ff0301a7f575">
+                    
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                    <input type="hidden" name="subject" value="New Event Registration (Indian Property Show)">
+
+                    <div>
+                        <label for="fullName" class="form-label">Full Name <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="fullName" name="Full Name" required class="form-input" placeholder="e.g. Rahul Sharma">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="form-label">Email Address <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-regular fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required class="form-input" placeholder="rahul@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="phone" class="form-label">Phone Number <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-phone text-gray-400"></i>
+                                </div>
+                                <input type="tel" id="phone" name="Phone" required class="form-input" placeholder="+49 151 23456789">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="city" class="form-label">Event City <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-location-dot text-gray-400"></i>
+                                </div>
+                                <select id="city" name="City Preference" required class="form-input appearance-none bg-white cursor-pointer">
+                                    <option value="" disabled selected>Select city</option>
+                                    <option value="Munich (April 25)">Munich</option>
+                                    <option value="Frankfurt (April 26)">Frankfurt</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <i class="fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full mt-4 bg-primary-teal text-white font-bold text-lg py-3.5 px-8 rounded-lg shadow-md btn-shine hover:bg-dark-teal transition-all duration-300 flex items-center justify-center group">
+                        <span>Request Invite</span>
+                        <i class="fa-solid fa-arrow-right-long ml-3 transform group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    
+                    <p class="text-center text-xs text-gray-400 mt-4">
+                        <i class="fa-solid fa-lock mr-1"></i> Your data is 100% secure.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#111827] py-6 text-center text-xs text-gray-400 border-t-2 border-primary-teal">
+        <p>Copyright © 2026 Indian Property Exhibition Germany. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('inviteForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const originalBtnContent = submitBtn.innerHTML;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop standard redirect
+
+            // Loading state
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Sending...';
+            submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    // Success state
+                    submitBtn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Invite Requested!';
+                    submitBtn.classList.remove('bg-primary-teal', 'hover:bg-dark-teal');
+                    submitBtn.classList.add('bg-green-600');
+                    form.reset(); // clear fields
+                    
+                    // Optional: Fire Meta Pixel Lead Event here
+                    if(typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                } else {
+                    console.log(response);
+                    submitBtn.innerHTML = '<i class="fa-solid fa-xmark mr-2"></i> Error. Try Again.';
+                    submitBtn.classList.add('bg-red-600');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                submitBtn.innerHTML = '<i class="fa-solid fa-xmark mr-2"></i> Something went wrong!';
+                submitBtn.classList.add('bg-red-600');
+            })
+            .then(function() {
+                // Revert button back to normal after 4 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.classList.remove('bg-green-600', 'bg-red-600', 'opacity-80', 'cursor-not-allowed');
+                    submitBtn.classList.add('bg-primary-teal', 'hover:bg-dark-teal');
+                }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
