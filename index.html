@@ -236,6 +236,15 @@
             transform: scale(1.5);
         }
 
+        /* Continuous Slow Pan (Ken Burns) for Hero */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .hero-img-animate {
+            animation: kenBurns 25s ease-in-out infinite alternate;
+        }
+
         /* Premium Scroll Animation */
         .reveal {
             opacity: 0;
@@ -335,6 +344,52 @@
                 India's leading real estate developers directly to NRIs in Germany.
             </p>
 
+            <div class="mt-8 mb-8 reveal reveal-delay-2 flex flex-col items-center">
+                <p class="text-xs font-bold text-red-600 uppercase tracking-widest mb-3 animate-pulse"><i class="fa-regular fa-clock mr-1"></i> Registration Closes In:</p>
+                <div class="flex gap-3 sm:gap-4 text-center justify-center mb-8">
+                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                        <span id="days" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Days</span>
+                    </div>
+                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                        <span id="hours" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Hours</span>
+                    </div>
+                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                        <span id="minutes" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Mins</span>
+                    </div>
+                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                        <span id="seconds" class="block text-2xl sm:text-3xl font-extrabold text-accent-yellow">00</span>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Secs</span>
+                    </div>
+                </div>
+
+                <div class="max-w-sm w-full mx-auto p-5 bg-white border border-gray-100 rounded-xl shadow-sm">
+                    <p class="text-sm font-bold text-gray-800 mb-4 text-center"><i class="fa-solid fa-fire text-red-500 mr-1 animate-pulse"></i> High Demand: Limited Seats Remaining</p>
+                    
+                    <div class="mb-4 text-left">
+                        <div class="flex justify-between text-xs font-semibold mb-1.5 px-1">
+                            <span class="text-gray-600">Munich (April 25)</span>
+                            <span class="text-red-600">85% Booked</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                            <div class="bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-left">
+                        <div class="flex justify-between text-xs font-semibold mb-1.5 px-1">
+                            <span class="text-gray-600">Frankfurt (April 26)</span>
+                            <span class="text-accent-yellow text-[#d4af37]">78% Booked</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                            <div class="bg-accent-yellow h-2.5 rounded-full" style="width: 78%; background-color: #d4af37;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-12 reveal reveal-delay-3 border-y border-gray-100 py-4 max-w-5xl mx-auto flex justify-center">
                 <div class="flex flex-wrap justify-center items-center text-[15px] font-medium text-[#4a6572] w-full">
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Luxury Homes</span> 
@@ -377,14 +432,16 @@
                     <h3 class="text-2xl font-bold text-gray-800 mb-1">Locations: Frankfurt & Munich</h3>
                     <p class="text-sm text-gray-500 mb-6">(Venue shared after registration confirmation)</p>
                     
-                    <div class="w-full h-[320px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative group cursor-pointer border border-white">
-                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" alt="Map" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-primary-teal/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl text-primary-teal font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                                <i class="fa-solid fa-map-location-dot mr-2 text-lg"></i>Interactive Map
-                            </div>
-                        </div>
+                    <div class="w-full h-[320px] bg-gray-200 rounded-xl overflow-hidden shadow-lg relative border border-white">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163749.77123490716!2d8.530366914561086!3d50.12133271167232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd096f477096c5%3A0x422435029b0c600!2sFrankfurt%2C%20Germany!5e0!3m2!1sen!2sus!4v1714578135118!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -410,11 +467,11 @@
                     <h4 class="font-bold text-gray-800 mt-2">Golf & branded residences in<br>Delhi NCR</h4>
                 </div>
                 <div class="luxury-card reveal reveal-delay-2">
-                    <i class="fa-solid fa-house-signal luxury-icon"></i>
+                    <i class="fa-solid fa-house-chimney luxury-icon"></i>
                     <h4 class="font-bold text-gray-800 mt-2">Smart homes in Bangalore</h4>
                 </div>
                 <div class="luxury-card reveal">
-                    <i class="fa-solid fa-house-chimney luxury-icon"></i>
+                    <i class="fa-solid fa-building luxury-icon"></i>
                     <h4 class="font-bold text-gray-800 mt-2">Premium villas in Hyderabad</h4>
                 </div>
                 <div class="luxury-card reveal reveal-delay-1">
@@ -472,9 +529,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="city-card reveal cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&auto=format&fit=crop" alt="Mumbai">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367333/s1_c8smxg.jpg" alt="Mumbai">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">MUMBAI</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Mumbai</h4>
@@ -484,9 +540,8 @@
 
                 <div class="city-card reveal reveal-delay-1 cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?w=600&auto=format&fit=crop" alt="Pune">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367331/s2_dhgjyk.jpg" alt="Pune">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">PUNE</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Pune</h4>
@@ -496,9 +551,8 @@
 
                 <div class="city-card reveal reveal-delay-2 cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1587474260580-58955f9e3195?w=600&auto=format&fit=crop" alt="Delhi NCR">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367330/s3_mdvlhh.jpg" alt="Delhi NCR">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">DELHI NCR</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Delhi NCR</h4>
@@ -508,9 +562,8 @@
 
                 <div class="city-card reveal cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=600&auto=format&fit=crop" alt="Bangalore">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367332/s4_ne8vw4.jpg" alt="Bangalore">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">BANGALORE</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Bangalore</h4>
@@ -520,9 +573,8 @@
 
                 <div class="city-card reveal reveal-delay-1 cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1590483863868-98e3575da5de?w=600&auto=format&fit=crop" alt="Hyderabad">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367330/s5_kiq66r.jpg" alt="Hyderabad">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">HYDERABAD</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Hyderabad</h4>
@@ -532,9 +584,8 @@
 
                 <div class="city-card reveal reveal-delay-2 cursor-pointer group">
                     <div class="city-card-img-container">
-                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=600&auto=format&fit=crop" alt="Chennai">
+                        <img src="https://res.cloudinary.com/dozcviag7/image/upload/v1773367330/s6_nbhmec.jpg" alt="Chennai">
                         <div class="city-overlay-gradient"></div>
-                        <div class="city-card-title-overlay">CHENNAI</div>
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-teal transition-colors">Chennai</h4>
@@ -604,10 +655,10 @@
 
             <p class="font-bold text-gray-800 mt-10 text-lg reveal reveal-delay-1">Submit your registration to receive your official invite.</p>
             
-            <a href="register.html" class="inline-block mt-6 bg-accent-yellow text-dark-teal font-bold py-4 px-10 rounded-lg shadow-lg btn-shine hover:shadow-xl reveal reveal-delay-2">
+            <a href="register.html" class="inline-block mt-6 bg-accent-yellow text-dark-teal font-bold py-4 px-10 rounded-lg shadow-lg btn-shine hover:shadow-xl reveal reveal-delay-2 mb-16 md:mb-0">
                 Request Your Invite
             </a>
-            <p class="text-sm text-gray-500 mt-4 reveal reveal-delay-2 mb-16 md:mb-0">Limited seats in Frankfurt & Munich.</p>
+            
         </div>
     </section>
 
@@ -635,6 +686,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Animations
             const revealElements = document.querySelectorAll('.reveal');
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -650,6 +702,7 @@
             });
             revealElements.forEach(el => revealObserver.observe(el));
 
+            // Sticky Header Shadow
             const header = document.getElementById('main-header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
@@ -661,6 +714,7 @@
                 }
             });
 
+            // Mobile Menu Logic
             const menuBtn = document.getElementById('menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -682,6 +736,31 @@
             menuLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
+
+            // Countdown Timer Logic
+            const targetDate = new Date("April 25, 2026 09:00:00").getTime();
+            const countdownInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                }
+            }, 1000);
         });
     </script>
 </body>
