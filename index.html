@@ -13,7 +13,16 @@
             font-family: 'Poppins', sans-serif;
             color: #4a4a4a;
             overflow-x: hidden;
-            background-color: #fcfcfc;
+            /* Premium Animated Background applied here */
+            background: linear-gradient(-45deg, #ffffff, #e2f1f1, #fdf9e6, #ffffff);
+            background-size: 300% 300%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Custom Colors */
@@ -21,7 +30,6 @@
             --primary-teal: #006666;
             --dark-teal: #004d4d;
             --accent-yellow: #ffcc00;
-            --light-bg: #f4f7fb;
             --text-dark: #333333;
             --text-blue-grey: #4a6572;
         }
@@ -31,7 +39,6 @@
         .border-primary-teal { border-color: var(--primary-teal); }
         .bg-dark-teal { background-color: var(--dark-teal); }
         .bg-accent-yellow { background-color: var(--accent-yellow); }
-        .bg-light-bg { background-color: var(--light-bg); }
 
         /* Premium Button Shine Effect */
         .btn-shine {
@@ -279,7 +286,7 @@
 </head>
 <body class="antialiased relative">
 
-    <header class="bg-white py-4 shadow-sm sticky top-0 z-40 transition-all duration-300" id="main-header">
+    <header class="bg-white/95 backdrop-blur-sm py-4 shadow-sm sticky top-0 z-40 transition-all duration-300" id="main-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             
             <div class="flex items-center cursor-pointer hover:scale-105 transition-transform duration-300">
@@ -323,7 +330,7 @@
         </picture>
     </section>
 
-    <section class="py-16 bg-white text-center px-4 relative">
+    <section class="py-16 text-center px-4 relative">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
         
         <div class="max-w-4xl mx-auto reveal relative z-10">
@@ -347,25 +354,25 @@
             <div class="mt-8 mb-8 reveal reveal-delay-2 flex flex-col items-center">
                 <p class="text-xs font-bold text-red-600 uppercase tracking-widest mb-3 animate-pulse"><i class="fa-regular fa-clock mr-1"></i> Registration Closes In:</p>
                 <div class="flex gap-3 sm:gap-4 text-center justify-center mb-8">
-                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                    <div class="bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
                         <span id="days" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
                         <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Days</span>
                     </div>
-                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                    <div class="bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
                         <span id="hours" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
                         <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Hours</span>
                     </div>
-                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                    <div class="bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
                         <span id="minutes" class="block text-2xl sm:text-3xl font-extrabold text-primary-teal">00</span>
                         <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Mins</span>
                     </div>
-                    <div class="bg-white shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
+                    <div class="bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 rounded-lg p-2 sm:p-3 w-16 sm:w-20">
                         <span id="seconds" class="block text-2xl sm:text-3xl font-extrabold text-accent-yellow">00</span>
                         <span class="text-[10px] sm:text-xs text-gray-500 font-semibold uppercase">Secs</span>
                     </div>
                 </div>
 
-                <div class="max-w-sm w-full mx-auto p-5 bg-white border border-gray-100 rounded-xl shadow-sm">
+                <div class="max-w-sm w-full mx-auto p-5 bg-white/90 backdrop-blur-md border border-gray-100 rounded-xl shadow-sm">
                     <p class="text-sm font-bold text-gray-800 mb-4 text-center"><i class="fa-solid fa-fire text-red-500 mr-1 animate-pulse"></i> High Demand: Limited Seats Remaining</p>
                     
                     <div class="mb-4 text-left">
@@ -394,23 +401,23 @@
                 </div>
             </div>
 
-            <div class="mt-12 reveal reveal-delay-3 border-y border-gray-100 py-4 max-w-5xl mx-auto flex justify-center">
+            <div class="mt-12 reveal reveal-delay-3 border-y border-gray-200/60 py-4 max-w-5xl mx-auto flex justify-center">
                 <div class="flex flex-wrap justify-center items-center text-[15px] font-medium text-[#4a6572] w-full">
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Luxury Homes</span> 
-                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Investment Properties</span> 
-                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Pre-Launch Offers</span> 
-                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer mb-2 sm:mb-0">Assured Rental Projects</span> 
-                    <span class="text-gray-200 hidden sm:inline">|</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
                     <span class="px-3 hover:text-primary-teal transition-colors cursor-pointer">High ROI Opportunities</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-light-bg overflow-hidden border-y border-gray-100">
+    <section id="about" class="py-20 overflow-hidden border-y border-gray-200/50 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 
@@ -425,7 +432,7 @@
                         <li>Investors seeking strong rental yield</li>
                     </ul>
                     
-                    <div class="bg-white p-5 rounded-xl shadow-md border-l-4 border-primary-teal transform transition-transform duration-300 hover:translate-x-2">
+                    <div class="bg-white/90 backdrop-blur-sm p-5 rounded-xl shadow-md border-l-4 border-primary-teal transform transition-transform duration-300 hover:translate-x-2">
                         <p class="font-bold text-gray-800 leading-relaxed">
                             Meet top Indian developers, explore verified projects, and get one-on-one consultation.
                         </p>
@@ -452,7 +459,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section class="py-20 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14 reveal">
                 <div class="section-heading-pill">Luxury Segment – Premium & Branded Residences</div>
@@ -488,11 +495,11 @@
                 </div>
             </div>
             
-            <p class="text-center mt-12 font-bold text-gray-800 reveal bg-gray-50 py-3 rounded-lg max-w-xl mx-auto">Perfect for lifestyle buyers and HNI investors.</p>
+            <p class="text-center mt-12 font-bold text-gray-800 reveal bg-white/60 backdrop-blur-sm py-3 rounded-lg max-w-xl mx-auto shadow-sm">Perfect for lifestyle buyers and HNI investors.</p>
         </div>
     </section>
 
-    <section class="py-20 bg-light-bg border-y border-gray-100">
+    <section class="py-20 border-y border-gray-200/50 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
                 <div class="section-heading-pill">Investment Opportunities – High ROI for NRIs</div>
@@ -501,7 +508,7 @@
                 </div>
             </div>
 
-            <div class="max-w-3xl mx-auto bg-white border border-gray-100 rounded-2xl p-10 relative mt-12 shadow-lg reveal reveal-delay-1 transition-transform hover:-translate-y-1 duration-500">
+            <div class="max-w-3xl mx-auto bg-white/95 backdrop-blur-sm border border-gray-100 rounded-2xl p-10 relative mt-12 shadow-lg reveal reveal-delay-1 transition-transform hover:-translate-y-1 duration-500">
                 <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary-teal text-white px-8 py-2 rounded-lg font-semibold text-sm shadow-md">
                     Our experts will guide you based on:
                 </div>
@@ -524,7 +531,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-white">
+    <section class="py-20 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <div class="section-heading-pill">Top Cities to Invest in India</div>
@@ -600,7 +607,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-light-bg border-t border-gray-100">
+    <section class="py-20 border-t border-gray-200/50 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
                 <div class="section-heading-pill">Special Speaker Session</div>
@@ -610,7 +617,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
-                <div class="reveal bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
+                <div class="reveal bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
                     <div class="bg-dark-teal text-white px-5 py-2 rounded-lg text-sm inline-block font-semibold mb-5 shadow-sm">Topics include:</div>
                     <ul class="teal-bullet-list text-gray-700 text-sm space-y-3 pt-2">
                         <li>Best locations to invest right now in India</li>
@@ -623,7 +630,7 @@
                     <div class="inline-block border-2 border-red-200 text-red-600 rounded px-5 py-2.5 mt-5 text-xs font-extrabold uppercase tracking-widest bg-red-50 shadow-sm animate-pulse">Limited seating available</div>
                 </div>
 
-                <div class="reveal reveal-delay-1 bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
+                <div class="reveal reveal-delay-1 bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-500 border border-transparent hover:border-gray-100">
                     <div class="bg-dark-teal text-white px-5 py-2 rounded-lg text-sm inline-block font-semibold mb-5 shadow-sm">Who Should Attend?</div>
                     <ul class="teal-bullet-list text-gray-700 text-sm space-y-3 pt-2">
                         <li>Indian professionals in Germany</li>
@@ -639,13 +646,13 @@
         </div>
     </section>
 
-    <section id="register" class="py-20 bg-white overflow-hidden relative">
+    <section id="register" class="py-20 overflow-hidden relative">
         <div class="max-w-3xl mx-auto px-4 text-center reveal relative z-10">
             <a href="register.html" class="section-heading-pill !bg-dark-teal !text-white text-xl !py-4 !px-10 rounded-xl mb-10 shadow-lg btn-shine cursor-pointer inline-block">
                 Register Now – By Invitation Only
             </a>
 
-            <div class="border border-gray-200 rounded-2xl p-10 relative max-w-lg mx-auto mt-6 bg-white shadow-xl transition-transform duration-500 hover:-translate-y-2">
+            <div class="border border-gray-200 rounded-2xl p-10 relative max-w-lg mx-auto mt-6 bg-white/95 backdrop-blur-sm shadow-xl transition-transform duration-500 hover:-translate-y-2">
                 <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary-teal text-white px-6 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">
                     Event Highlights
                 </div>
@@ -666,7 +673,7 @@
         </div>
     </section>
 
-    <footer class="bg-[#111827] py-8 text-center text-sm text-gray-400 border-t-4 border-primary-teal md:pb-8 pb-24">
+    <footer class="bg-[#111827] py-8 text-center text-sm text-gray-400 border-t-4 border-primary-teal md:pb-8 pb-24 relative z-10">
         <p>Copyright © 2026 Indian Property Exhibition Germany. All Rights Reserved.</p>
         <p class="mt-2 text-xs">Designed By <a href="#" class="text-teal-500 hover:text-white transition-colors underline decoration-teal-500/30">Azhari Infotech</a></p>
     </footer>
